@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Loader from "../../ui/Loader";
 import { Heading2 } from "../../ui/Headings";
 import useFetch from "../../hooks/useFetch";
 function Recipes() {
@@ -10,28 +11,37 @@ function Recipes() {
   return (
     <Section>
       <Heading2>Recipes</Heading2>
-      <ContentWrapper>
-        {data?.meals.map(
-          ({ strMeal: mealName, strMealThumb: mealImg, idMeal: id }) => {
-            return (
-              <Card key={id}>
-                <div>
-                  <img src={mealImg} />
-                </div>
-                <TextWrapper>
-                  <h3>{mealName}</h3>
-                  <p>
-                    Lorem Ipsum Lorem Ipsum is simply dummy text of the printing
-                    and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled
-                  </p>
-                </TextWrapper>
-              </Card>
-            );
-          }
-        )}
-      </ContentWrapper>
+      {loading && <Loader />}
+      {!loading && error && (
+        <Error>
+          Something Went Wrong 😢 . Sorry We Couldn't load Testimonials
+        </Error>
+      )}
+      {!loading && !error && (
+        <ContentWrapper>
+          {data?.meals.map(
+            ({ strMeal: mealName, strMealThumb: mealImg, idMeal: id }) => {
+              return (
+                <Card key={id}>
+                  <div>
+                    <img src={mealImg} />
+                  </div>
+                  <TextWrapper>
+                    <h3>{mealName}</h3>
+                    <p>
+                      Lorem Ipsum Lorem Ipsum is simply dummy text of the
+                      printing and typesetting industry. Lorem Ipsum has been
+                      the industry's standard dummy text ever since the 1500s,
+                      when an unknown printer took a galley of type and
+                      scrambled
+                    </p>
+                  </TextWrapper>
+                </Card>
+              );
+            }
+          )}
+        </ContentWrapper>
+      )}
       <Button>Contact Us</Button>
     </Section>
   );
@@ -43,13 +53,13 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   gap: var(--spacing-120);
-  padding-inline: 20rem;
+  padding-inline: clamp(1rem, -3.2rem + 21vw, 22rem);
   padding-block: var(--spacing-120);
 `;
 
 const ContentWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: var(--spacing-100);
   margin-inline: auto;
 
@@ -122,6 +132,15 @@ const Button = styled.button`
     font-size: 1.2rem;
     padding: var(--spacing-40) var(--spacing-160);
   }
+`;
+
+const Error = styled.span`
+  position: absolute;
+  right: 2rem;
+  bottom: 50%;
+  color: red;
+  font-size: 12px;
+  transform: translateY(50%);
 `;
 
 export default Recipes;

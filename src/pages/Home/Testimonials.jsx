@@ -1,7 +1,5 @@
 import React from "react";
 import Star from "../../assets/star.svg";
-import RightArrow from "../../assets/rightArrow.svg";
-import LeftArrow from "../../assets/leftArrow.svg";
 import { Heading2 } from "../../ui/Headings";
 import Loader from "../../ui/Loader";
 import styled from "styled-components";
@@ -63,7 +61,7 @@ const Section = styled.section`
     hsl(32, 56%, 52%, 0.8)
     ), */
   position: relative;
-  background-image: url("src/assets/Mask Group.png"),
+  background-image: url("src/assets/Mask Group2.png"),
     linear-gradient(var(--brown-400), var(--brown-400));
   background-repeat: no-repeat;
   background-size: cover;
@@ -72,7 +70,7 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   padding-block: 5rem 3rem;
-  padding-inline: 20rem;
+  padding-inline: clamp(1rem, -3.2rem + 21vw, 22rem);
 
   /* &:before {
     content: "";
@@ -171,25 +169,5 @@ const Error = styled.div`
   color: red;
   font-size: 1.5rem;
 `;
-const Pagination = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-block-start: 1rem;
-  font-weight: 600;
-  color: var(--grey-500);
 
-  img {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  button {
-    background: none;
-  }
-  button:hover {
-    cursor: pointer;
-  }
-`;
 export default Testimonials;

@@ -12,7 +12,7 @@ const Loader = styled.div`
     margin: 8px;
     border-radius: 50%;
     border: 6px solid var(--blue-300);
-    border-color: var(--blue-300) transparent var(--blue-300) transparent;
+    border-color: var(--yellow-200) transparent var(--yellow-200) transparent;
     animation: rotate 1.2s linear infinite;
   }
 

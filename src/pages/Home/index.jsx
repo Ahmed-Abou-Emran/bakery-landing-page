@@ -14,12 +14,12 @@ function Home() {
         <Hero />
         <Work />
       </HeroWorktWrapper>
-      {/* <Main> */}
-      <About />
-      <Recipes />
-      <Testimonials />
-      <ContactUs />
-      {/* </Main> */}
+      <Main>
+        <About />
+        <Recipes />
+        <Testimonials />
+        <ContactUs />
+      </Main>
       <Footer />
     </Wrapper>
   );
@@ -30,7 +30,9 @@ const Wrapper = styled.div`
   /* background-image: url("src/assets/Testimonials-background.png"); */
 `;
 const HeroWorktWrapper = styled.div`
-  /* background-image: url("src/assets/hero-background2.png"); */
+  background-image: url("src/assets/hero-background2.png");
+  /* background-size: cover; */
+  background-repeat: round;
 `;
-// const Main = styled.main``;
+const Main = styled.main``;
 export default Home;

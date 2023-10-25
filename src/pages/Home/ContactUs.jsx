@@ -113,6 +113,7 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-120);
+  padding: 1rem;
 `;
 const ContentWrapper = styled.div`
   display: flex;
@@ -195,6 +196,7 @@ const SubmitMessage = styled.div`
   border-radius: 5px;
   position: relative;
   text-align: center;
+  transition: all 300ms ease-in-out;
 `;
 const ContactDetails = styled.div`
   font-family: Abel;

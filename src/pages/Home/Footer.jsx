@@ -6,8 +6,6 @@ function Footer() {
 
 const StyledFooter = styled.footer`
   margin-block-start: 3.1rem;
-  /* position: absolute;
-  left: 0; */
   height: 9rem;
   width: 100%;
   background-color: var(--brown-950);

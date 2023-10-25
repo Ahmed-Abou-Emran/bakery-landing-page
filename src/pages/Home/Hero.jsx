@@ -6,9 +6,7 @@ import socialIcon2 from "../../assets/social2.svg";
 import socialIcon3 from "../../assets/social3.svg";
 import socialIcon4 from "../../assets/social4.svg";
 import heroBackground2 from "../../assets/hero-background2.png";
-import lorem from "../../assets/lorem.png";
-import quality from "../../assets/quality.svg";
-import bread from "../../assets/bread.png";
+import qualityBread from "../../assets/qualityBread1.png";
 function Hero() {
   return (
     <Header>
@@ -26,14 +24,12 @@ function Hero() {
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the
           </p>
-          <Button>See More</Button>
         </Left>
         <Right>
-          <img src={bread} />
-          <img src={quality} />
-          <img src={lorem} />
+          <img src={qualityBread} />
         </Right>
       </ContentWrapper>
+      <Button>See More</Button>
       <Footer>
         <SocialIconsWrapper>
           <img src={socialIcon1} />
@@ -51,7 +47,8 @@ function Hero() {
 }
 
 const Header = styled.header`
-  position: relative;
+  display: flex;
+  flex-direction: column;
   background-image: url("src/assets/hero-background2.png"),
     linear-gradient(
       to right,
@@ -61,22 +58,43 @@ const Header = styled.header`
     );
   background-size: contain;
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 24% 100%, 24% 80%, 0% 80%);
-  padding-inline: 20rem;
+  padding-inline: clamp(2rem, -15rem + 31vw, 22rem);
   padding-block: var(--spacing-60);
+
+  @media (max-width: 50rem) {
+    padding-inline: clamp(0.5rem, -0.5rem + 5vw, 2rem);
+    background-image: linear-gradient(
+      to bottom,
+      var(--yellow-400),
+      var(--brown-400) 40%,
+      var(--brown-400) 80%,
+      var(--yellow-700) 100%
+    );
+    justify-content: center;
+    align-items: center;
+  }
 `;
 const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  @media (max-width: 50rem) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Left = styled.div`
   h2 {
     color: var(--grey-100);
     font-family: Sen;
-    font-size: 4.625rem;
+    font-size: clamp(2.5rem, 2.075rem + 2.125vw, 4.625rem);
     font-weight: 800;
     text-transform: uppercase;
     margin-block-end: 1.25rem;
+    line-height: 1.1;
   }
 
   p {
@@ -91,15 +109,16 @@ const Left = styled.div`
   }
 `;
 const Right = styled.div`
-  position: relative;
-  transform: translate(0, 5%);
-  img:nth-of-type(1) {
-    /* position: absolute; */
-    transform: translate(-10%);
+  width: 100%;
+  transform: translate(2rem, 0);
+  img {
+    transform: scale(1.1);
   }
-  img:nth-of-type(2) {
-    position: absolute;
-    transform: translate(108%, -50%);
+  @media (max-width: 50rem) {
+    transform: translate(0, 0);
+    img {
+      transform: scale(0.9);
+    }
   }
 `;
 
@@ -108,7 +127,7 @@ const LogoWrapper = styled.div`
 
   align-items: center;
   gap: 1rem;
-  margin-block-end: 12.5rem;
+  margin-block-end: clamp(4rem, -3.2rem + 13.1vw, 12.5rem);
   div {
     display: flex;
     flex-direction: column;
@@ -136,16 +155,18 @@ const Button = styled.button`
   transition: all 200ms ease-in;
   border: 1px solid transparent;
   margin-block-end: 4rem;
-  align-self: center;
+  align-self: flex-start;
   &:hover {
     cursor: pointer;
     border: 1px solid var(--yellow-500);
     background-color: var(--grey-100);
     color: var(--yellow-500);
   }
-  @media (max-width: 46rem) {
+  @media (max-width: 50rem) {
     font-size: 1.2rem;
     padding: var(--spacing-40) var(--spacing-160);
+    margin-block-start: 4rem;
+    align-self: center;
   }
 `;
 
@@ -155,7 +176,12 @@ const Footer = styled.div`
   align-items: center;
   display: flex;
   gap: 3.5rem;
-  transform: translateX(6rem);
+  /* transform: clamp(0rem, -8.5rem + 15.5vw, 10rem); */
+
+  @media (max-width: 30rem) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 `;
 
 const SocialIconsWrapper = styled.div`
@@ -163,9 +189,20 @@ const SocialIconsWrapper = styled.div`
   flex-direction: column;
   gap: 1rem;
   /* position: realtive; */
-  background: red;
-  img {
+  background: var(--grey-100);
+  /* position:absolute; */
+  position: relative;
+  svg {
     height: 24px;
+    /* color: var(--yellow-300); */
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (max-width: 30rem) {
+    flex-direction: row;
   }
 `;
 

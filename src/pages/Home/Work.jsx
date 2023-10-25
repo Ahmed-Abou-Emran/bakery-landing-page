@@ -53,8 +53,19 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-130);
-  padding-inline: 20rem;
+  padding-inline: clamp(2rem, -15rem + 31vw, 22rem);
   padding-block: var(--spacing-120);
+
+  @media (max-width: 50rem) {
+    background-image: 
+  /* url("src/assets/hero-background2.png"), */ linear-gradient(
+      to bottom,
+      var(--yellow-400),
+      var(--brown-400) 40%,
+      var(--brown-400) 80%,
+      var(--yellow-700) 100%
+    );
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -71,10 +82,25 @@ const TextWrapper = styled.div`
     max-width: 17rem;
     align-self: flex-end;
   }
+
+  @media (max-width: 50rem) {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+
+    p {
+      color: var(--grey-100);
+      align-self: flex-start;
+      max-width: revert;
+    }
+  }
 `;
 const ImagesWrapper = styled.div`
-  display: flex;
-  gap: var(--spacing-50);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--spacing-30);
+  justify-items: center;
+  /* margin-inline: auto; */
   img {
     flex-grow: 1;
   }
