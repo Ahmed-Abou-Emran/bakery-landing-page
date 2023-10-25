@@ -57,7 +57,7 @@ const Header = styled.header`
       var(--grey-100)
     );
   background-size: contain;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 24% 100%, 24% 80%, 0% 80%);
+  /* clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 24% 100%, 24% 80%, 0% 80%); */
   padding-inline: clamp(2rem, -15rem + 31vw, 22rem);
   padding-block: var(--spacing-60);
 
