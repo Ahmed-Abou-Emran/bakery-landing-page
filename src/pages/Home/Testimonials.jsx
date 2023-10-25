@@ -51,6 +51,7 @@ function Testimonials() {
           </TestimonialsWrapper>
         </>
       )}
+      <Button>Contact Us</Button>
     </Section>
   );
 }
@@ -63,8 +64,8 @@ const Section = styled.section`
   position: relative;
   background-image: url("src/assets/Mask Group2.png"),
     linear-gradient(var(--brown-400), var(--brown-400));
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-repeat: no-repeat; */
+  background-size: fill;
   margin-block-start: 3.1rem;
   display: flex;
   flex-direction: column;
@@ -142,27 +143,39 @@ const Card = styled.div`
     width: 100%;
   }
 `;
-const ImageWrapper = styled.div`
-  width: 5rem;
-  height: 5rem;
-  flex-shrink: 0;
-
-  img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  @media (max-width: 62rem) {
-    margin-inline: auto;
-  }
-`;
 
 const StarRating = styled.div`
   display: flex;
   gap: var(--spacing-15);
+`;
+
+const Button = styled.button`
+  font-family: Poppins;
+  border-radius: 1.875rem;
+  background: var(--yellow-500);
+  color: var(--grey-100);
+  text-transform: uppercase;
+  padding: var(--spacing-50) var(--spacing-100);
+  border: none;
+
+  text-align: center;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.3;
+  transition: all 200ms ease-in;
+  border: 1px solid var(--grey-100);
+  margin-block-start: 2rem;
+  &:hover {
+    cursor: pointer;
+    border: 1px solid var(--yellow-500);
+    background-color: var(--grey-100);
+    color: var(--yellow-500);
+  }
+  @media (max-width: 46rem) {
+    font-size: 1.2rem;
+    padding: var(--spacing-40) var(--spacing-160);
+  }
 `;
 
 const Error = styled.div`

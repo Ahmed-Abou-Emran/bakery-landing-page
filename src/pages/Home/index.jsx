@@ -32,6 +32,7 @@ const Wrapper = styled.div`
 const HeroWorktWrapper = styled.div`
   background-image: url("src/assets/hero-background2.png");
   /* background-size: cover; */
+  background-size: fill;
   background-repeat: round;
 `;
 const Main = styled.main``;
