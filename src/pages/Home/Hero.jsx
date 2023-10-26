@@ -129,7 +129,7 @@ const LogoWrapper = styled.div`
 
   align-items: center;
   gap: 1rem;
-  margin-block-end: clamp(4rem, -3.2rem + 13.1vw, 12.5rem);
+  margin-block-end: clamp(4rem, -13rem + 21.25vw, 12.5rem);
   div {
     display: flex;
     flex-direction: column;
@@ -180,7 +180,7 @@ const Footer = styled.div`
   gap: 3.5rem;
   /* transform: clamp(0rem, -8.5rem + 15.5vw, 10rem); */
 
-  @media (max-width: 30rem) {
+  @media (max-width: 50rem) {
     flex-direction: column;
     gap: 1.5rem;
   }
@@ -203,7 +203,7 @@ const SocialIconsWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 30rem) {
+  @media (max-width: 50rem) {
     flex-direction: row;
   }
 `;
