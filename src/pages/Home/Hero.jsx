@@ -6,7 +6,7 @@ import socialIcon2 from "../../assets/social2.svg";
 import socialIcon3 from "../../assets/social3.svg";
 import socialIcon4 from "../../assets/social4.svg";
 import heroBackground2 from "../../assets/hero-background2.png";
-import qualityBread from "../../assets/qualityBread1.png";
+import qualityBread from "../../assets/quality-bread.png";
 function Hero() {
   return (
     <Header>

@@ -30,7 +30,7 @@ const Wrapper = styled.div`
   /* background-image: url("src/assets/Testimonials-background.png"); */
 `;
 const HeroWorktWrapper = styled.div`
-  background-image: url("src/assets/hero-background2.png");
+  /* background-image: url("src/assets/hero-background2.png"); */
   /* background-size: cover; */
   background-size: fill;
   background-repeat: round;

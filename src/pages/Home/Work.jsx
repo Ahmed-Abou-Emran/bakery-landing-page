@@ -31,15 +31,15 @@ function Work() {
 
 const Section = styled.section`
   /* mix-blend-mode: multiply; */
-  background-image: 
-  /* url("src/assets/hero-background2.png"), */ linear-gradient(
-    to right,
-    transparent,
-    transparent 36%,
-    var(--brown-400) 36%,
-    var(--brown-400)
-  );
-  background-size: contain;
+  background-image: url("src/assets/work-background.png"),
+    linear-gradient(
+      to right,
+      transparent,
+      transparent 36%,
+      var(--brown-400) 36%,
+      var(--brown-400)
+    );
+  background-size: fill;
   background-position: center;
   /* linear-gradient(var(--grey-300), var(--grey-300)); */
 
