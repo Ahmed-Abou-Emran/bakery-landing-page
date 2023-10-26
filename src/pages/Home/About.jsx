@@ -115,7 +115,7 @@ const Button = styled.button`
     color: var(--yellow-500);
   }
   @media (max-width: 50rem) {
-    align-self: stretch;
+    align-self: center;
   }
 `;
 export default About;
