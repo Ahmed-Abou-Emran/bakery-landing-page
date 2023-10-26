@@ -4,6 +4,7 @@ import Loader from "../../ui/Loader";
 import { Heading2 } from "../../ui/Headings";
 import useFetch from "../../hooks/useFetch";
 function Recipes() {
+  const [visibileRecipesCount, setVisibleRecipesCount] = React.useState(3);
   const { loading, error, data } = useFetch(
     "https://www.themealdb.com/api/json/v1/1/filter.php?c=Breakfast"
   );
@@ -18,29 +19,42 @@ function Recipes() {
         </Error>
       )}
       {!loading && !error && (
-        <ContentWrapper>
-          {data?.meals.map(
-            ({ strMeal: mealName, strMealThumb: mealImg, idMeal: id }) => {
-              return (
-                <Card key={id}>
-                  <div>
-                    <img src={mealImg} />
-                  </div>
-                  <TextWrapper>
-                    <h3>{mealName}</h3>
-                    <p>
-                      Lorem Ipsum Lorem Ipsum is simply dummy text of the
-                      printing and typesetting industry. Lorem Ipsum has been
-                      the industry's standard dummy text ever since the 1500s,
-                      when an unknown printer took a galley of type and
-                      scrambled
-                    </p>
-                  </TextWrapper>
-                </Card>
-              );
-            }
+        <RecipesWrapper>
+          <ContentWrapper>
+            {data?.meals
+              ?.slice(0, visibileRecipesCount)
+              ?.map(
+                ({ strMeal: mealName, strMealThumb: mealImg, idMeal: id }) => {
+                  return (
+                    <Card key={id}>
+                      <div>
+                        <img src={mealImg} />
+                      </div>
+                      <TextWrapper>
+                        <h3>{mealName}</h3>
+                        <p>
+                          Lorem Ipsum Lorem Ipsum is simply dummy text of the
+                          printing and typesetting industry. Lorem Ipsum has
+                          been the industry's standard dummy text ever since the
+                          1500s, when an unknown printer took a galley of type
+                          and scrambled
+                        </p>
+                      </TextWrapper>
+                    </Card>
+                  );
+                }
+              )}
+          </ContentWrapper>
+          {visibileRecipesCount < data?.meals?.length && (
+            <Button
+              onClick={() =>
+                setVisibleRecipesCount((prevCount) => prevCount + 3)
+              }
+            >
+              Load More
+            </Button>
           )}
-        </ContentWrapper>
+        </RecipesWrapper>
       )}
       <Button>Contact Us</Button>
     </Section>
@@ -57,9 +71,25 @@ const Section = styled.section`
   padding-block: var(--spacing-120);
 `;
 
+const RecipesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  button {
+    margin-inline: auto;
+    background-color: var(--brown-700);
+    font-size: 1rem;
+    padding: 1rem;
+
+    &:hover {
+      background-color: var(--brown-600);
+      color: var(--grey-100);
+    }
+  }
+`;
 const ContentWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
   gap: var(--spacing-100);
   margin-inline: auto;
 
